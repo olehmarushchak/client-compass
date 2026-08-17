@@ -207,7 +207,10 @@ function CustomersPage() {
             className="space-y-3"
             onSubmit={(e) => {
               e.preventDefault();
-              if (!form.name.trim()) return toast.error("Name is required");
+              if (!form.name.trim()) {
+                toast.error("Name is required");
+                return;
+              }
               save.mutate();
             }}
           >
